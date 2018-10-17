@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {Container, Row, Col, Button} from 'reactstrap'
 import styled from 'styled-components'
+import APIURL from '../helpers/environment'
 
 const List = styled.ul`
 list-style: none;
@@ -28,7 +29,7 @@ export default class Tournaments extends Component {
     }
     
     fetchTourneys = () => {
-        fetch('http://localhost:3000/tournaments', {
+        fetch(`http://${APIURL}/tournaments`, {
             method: 'GET',
             headers: {'Content-Type': 'application/json'}
         })
@@ -39,7 +40,7 @@ export default class Tournaments extends Component {
 
     handleDelete = (e) => {
         let token = sessionStorage.getItem('SessionToken')
-        fetch(`http://localhost:3000/tournaments/delete/${e.target.name}`, {
+        fetch(`http://${APIURL}/tournaments/delete/${e.target.name}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
@@ -51,7 +52,7 @@ export default class Tournaments extends Component {
 
     handleRegister = (e) => {
         let token = sessionStorage.getItem('SessionToken')
-        fetch(`http://localhost:3000/register/register/${e.target.name}`, {
+        fetch(`http://${APIURL}/register/register/${e.target.name}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

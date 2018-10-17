@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {Button, Form, FormGroup, Input} from 'reactstrap'
 import styled from 'styled-components'
 import img from '../assets/flag.jpg'
+import APIURL from '../helpers/environment'
 
 const Header = styled.h1`
 padding: 140px 0px 40px 0px;
@@ -37,7 +38,7 @@ export default class SignIn extends Component {
             email: this.state.email,
             password: this.state.password
         }
-        fetch('http://localhost:3000/user/signIn', {
+        fetch(`http://${APIURL}/user/signIn`, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(user)

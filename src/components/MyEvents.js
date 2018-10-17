@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import styled from 'styled-components'
 import {Container, Row, Col, Button} from 'reactstrap'
+import APIURL from '../helpers/environment'
 
 const MyRow = styled.div`
 border: 1px solid #3a4;
@@ -20,7 +21,7 @@ export default class MyEvents extends Component {
         let resultsArr = []
         let token = sessionStorage.getItem('SessionToken')
         response.map(event => {
-            fetch(`http://localhost:3000/tournaments/register/${event.event}`, {
+            fetch(`http://${APIURL}/tournaments/register/${event.event}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -38,7 +39,7 @@ export default class MyEvents extends Component {
 
     fetchRegistered = () => {
         let token = sessionStorage.getItem('SessionToken')
-        fetch('http://localhost:3000/register/register', {
+        fetch(`http://${APIURL}/register/register`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -51,7 +52,7 @@ export default class MyEvents extends Component {
 
     handleUnregister = (e) => {
         let token = sessionStorage.getItem('SessionToken')
-        fetch(`http://localhost:3000/register/unregister/${e.target.name}`, {
+        fetch(`http://${APIURL}/register/unregister/${e.target.name}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',

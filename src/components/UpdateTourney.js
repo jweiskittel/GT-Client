@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {Button, Form, FormGroup, Input} from 'reactstrap'
 import styled from 'styled-components'
+import APIURL from '../helpers/environment'
 
 const Header = styled.h2`
 margin: 110px 0px 60px 0px
@@ -25,7 +26,7 @@ export default class UpdateTourney extends Component {
     submitUpdate = (e) => {
         let eventId = sessionStorage.getItem('EventId')
         let token = sessionStorage.getItem('SessionToken')
-        fetch(`http://localhost:3000/tournaments/update/${eventId}`, {
+        fetch(`http://${APIURL}/tournaments/update/${eventId}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {Button, Form, FormGroup, Input} from 'reactstrap'
 import styled from 'styled-components'
+import APIURL from '../helpers/environment'
 
 const Header = styled.h2`
 margin: 110px 0px 60px 0px
@@ -29,7 +30,7 @@ export default class CreateTourney extends Component {
         format: this.state.format
     }
     let accessToken = sessionStorage.getItem('SessionToken')
-        fetch('http://localhost:3000/tournaments/create', {
+        fetch(`http://${APIURL}/tournaments/create`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

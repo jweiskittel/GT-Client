@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {Button, Form, FormGroup, Input, Label} from 'reactstrap'
 import styled from 'styled-components'
 import img from '../assets/flag.jpg'
+import APIURL from '../helpers/environment'
 
 const Header = styled.h1`
 padding: 120px 0px 40px 0px;
@@ -42,7 +43,7 @@ export default class SignUp extends Component {
             password: this.state.password
             } 
         if (this.state.password.length > 7) {     
-        fetch('http://localhost:3000/user/signUp', {
+        fetch(`http://${APIURL}/user/signUp`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
