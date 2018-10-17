@@ -50,8 +50,7 @@ class App extends Component {
     if (this.state.sessionToken === sessionStorage.getItem('SessionToken') && sessionStorage.getItem('SessionToken') !== 'undefined') {
       return (
         <Switch>
-          {/* <Route exact path='/signIn'><Tournaments/></Route> */}
-          <Route exact path='/tournaments'><Tournaments/></Route>
+          <Route exact path='/tournaments'><Tournaments /></Route>
           <Route exact path='/createTourney'><CreateTourney /></Route>
           <Route exact path='/update'><UpdateTourney /></Route>
           <Route exact path='/registered'><MyEvents /></Route>
