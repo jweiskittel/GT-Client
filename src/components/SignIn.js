@@ -57,7 +57,7 @@ export default class SignIn extends Component {
             <Background>
                 <Header>Sign In</Header>
                 <div>
-                    <Form onSubmit={this.submitSignIn}>
+                    <Form>
                     <FormGroup>
                         <Input style={{width: '75%', display: 'block', margin: 'auto', border: 'solid 1px black'}} bsSize='lg' type='email' name='email' placeholder='Email Address' onChange={this.handleChange}/>
                     </FormGroup>
@@ -65,7 +65,7 @@ export default class SignIn extends Component {
                         <Input style={{width: '75%', display: 'block', margin: 'auto', border: 'solid 1px black'}} bsSize='lg' type='password' name='password' placeholder='Password' onChange={this.handleChange}/>
                     </FormGroup>
                         <br />
-                        <Button style={{border: 'solid 1px black'}} color='success' type='submit'>Sign In</Button>
+                        <Button style={{border: 'solid 1px black'}} color='success' type='submit' onClick={this.submitSignIn}>Sign In</Button>
                     </Form>
                 </div>
             </Background>
