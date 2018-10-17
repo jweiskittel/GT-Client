@@ -21,7 +21,7 @@ export default class MyEvents extends Component {
         let resultsArr = []
         let token = sessionStorage.getItem('SessionToken')
         response.map(event => {
-            fetch(`http://${APIURL}/tournaments/register/${event.event}`, {
+            fetch(`${APIURL}/tournaments/register/${event.event}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -39,7 +39,7 @@ export default class MyEvents extends Component {
 
     fetchRegistered = () => {
         let token = sessionStorage.getItem('SessionToken')
-        fetch(`http://${APIURL}/register/register`, {
+        fetch(`${APIURL}/register/register`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -52,7 +52,7 @@ export default class MyEvents extends Component {
 
     handleUnregister = (e) => {
         let token = sessionStorage.getItem('SessionToken')
-        fetch(`http://${APIURL}/register/unregister/${e.target.name}`, {
+        fetch(`${APIURL}/register/unregister/${e.target.name}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',

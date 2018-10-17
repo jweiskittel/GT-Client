@@ -26,7 +26,7 @@ export default class UpdateTourney extends Component {
     submitUpdate = (e) => {
         let eventId = sessionStorage.getItem('EventId')
         let token = sessionStorage.getItem('SessionToken')
-        fetch(`http://${APIURL}/tournaments/update/${eventId}`, {
+        fetch(`${APIURL}/tournaments/update/${eventId}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

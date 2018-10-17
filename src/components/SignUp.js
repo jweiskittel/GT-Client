@@ -43,7 +43,7 @@ export default class SignUp extends Component {
             password: this.state.password
             } 
         if (this.state.password.length > 7) {     
-        fetch(`http://${APIURL}/user/signUp`, {
+        fetch(`${APIURL}/user/signUp`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

@@ -29,7 +29,7 @@ export default class Tournaments extends Component {
     }
     
     fetchTourneys = () => {
-        fetch(`http://${APIURL}/tournaments`, {
+        fetch(`${APIURL}/tournaments`, {
             method: 'GET',
             headers: {'Content-Type': 'application/json'}
         })
@@ -40,7 +40,7 @@ export default class Tournaments extends Component {
 
     handleDelete = (e) => {
         let token = sessionStorage.getItem('SessionToken')
-        fetch(`http://${APIURL}/tournaments/delete/${e.target.name}`, {
+        fetch(`${APIURL}/tournaments/delete/${e.target.name}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
@@ -52,7 +52,7 @@ export default class Tournaments extends Component {
 
     handleRegister = (e) => {
         let token = sessionStorage.getItem('SessionToken')
-        fetch(`http://${APIURL}/register/register/${e.target.name}`, {
+        fetch(`${APIURL}/register/register/${e.target.name}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

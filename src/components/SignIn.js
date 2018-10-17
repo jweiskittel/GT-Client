@@ -46,6 +46,7 @@ export default class SignIn extends Component {
         .then(response => response.json())
         .then(response => {
             this.props.setToken(response.sessionToken)
+            window.location.href='/tournaments'
         }) 
     }
 
