@@ -38,7 +38,7 @@ export default class SignIn extends Component {
             email: this.state.email,
             password: this.state.password
         }
-        fetch(`http://${APIURL}/user/signIn`, {
+        fetch(`${APIURL}/user/signIn`, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(user)
