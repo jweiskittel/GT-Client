@@ -32,10 +32,10 @@ export default class CreateTourney extends Component {
     let accessToken = sessionStorage.getItem('SessionToken')
         fetch(`${APIURL}/tournaments/create`, {
             method: 'POST',
-            headers: new Headers({
+            headers: {
                 'Content-Type': 'application/json',
                 'Authorization': accessToken
-            }),
+            },
             body: JSON.stringify(newTourney)
         })
     }

@@ -23,10 +23,10 @@ export default class MyEvents extends Component {
         response.map(event => {
             fetch(`${APIURL}/tournaments/register/${event.event}`, {
                 method: 'GET',
-                headers: new Headers({
+                headers: {
                     'Content-Type': 'application/json',
                     'Authorization': token
-                })
+                }
             })
             .then(response => response.json())
             .then(response => {
@@ -40,10 +40,10 @@ export default class MyEvents extends Component {
         let token = sessionStorage.getItem('SessionToken')
         fetch(`${APIURL}/register/register`, {
             method: 'GET',
-            headers: new Headers({
+            headers: {
                 'Content-Type': 'application/json',
                 'Authorization': token
-            })
+            }
         })
         .then(response => response.json())
                 .then(response => this.fetchRealData(response))
@@ -53,10 +53,10 @@ export default class MyEvents extends Component {
         let token = sessionStorage.getItem('SessionToken')
         fetch(`${APIURL}/register/unregister/${e.target.name}`, {
             method: 'DELETE',
-            headers: new Headers({
+            headers: {
                 'Content-Type': 'application/json',
                 'Authorization': token
-            })
+            }
         })
         window.location.reload()
     }

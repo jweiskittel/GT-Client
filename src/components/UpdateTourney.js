@@ -28,10 +28,10 @@ export default class UpdateTourney extends Component {
         let token = sessionStorage.getItem('SessionToken')
         fetch(`${APIURL}/tournaments/update/${eventId}`, {
             method: 'PUT',
-            headers: new Headers({
+            headers: {
                 'Content-Type': 'application/json',
                 'Authorization': token
-            }),
+            },
             body: JSON.stringify(this.state)
         })
     }

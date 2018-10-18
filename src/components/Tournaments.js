@@ -31,7 +31,7 @@ export default class Tournaments extends Component {
     fetchTourneys = () => {
         fetch(`${APIURL}/tournaments`, {
             method: 'GET',
-            headers: new Headers({'Content-Type': 'application/json'})
+            headers: {'Content-Type': 'application/json'}
         })
         .then(response => response.json())
         .then(response => {
@@ -42,10 +42,10 @@ export default class Tournaments extends Component {
         let token = sessionStorage.getItem('SessionToken')
         fetch(`${APIURL}/tournaments/delete/${e.target.name}`, {
             method: 'DELETE',
-            headers: new Headers({
+            headers: {
                 'Content-Type': 'application/json',
                 'Authorization': token
-            })
+            }
         })
         window.location.reload()
     }
@@ -54,10 +54,10 @@ export default class Tournaments extends Component {
         let token = sessionStorage.getItem('SessionToken')
         fetch(`${APIURL}/register/register/${e.target.name}`, {
             method: 'POST',
-            headers: new Headers({
+            headers: {
                 'Content-Type': 'application/json',
                 'Authorization': token
-            })
+            }
         })
         .then(alert(`You have successfully registered for this event! Visit 'My Events' to see all of your events!`))
     }

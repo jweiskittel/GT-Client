@@ -40,7 +40,7 @@ export default class SignIn extends Component {
         }
         fetch(`${APIURL}/user/signIn`, {
             method: 'POST',
-            headers: new Headers({'Content-Type': 'application/json'}),
+            headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(user)
         })
         .then(response => response.json())
