@@ -6,6 +6,8 @@ switch (window.location.hostname) {
         break;
     case 'jw-gtclient.herokuapp.com':
         APIURL = 'https://jw-gtserver.herokuapp.com'
+        break;
+    default:
 }
 
 export default APIURL

@@ -23,16 +23,15 @@ export default class MyEvents extends Component {
         response.map(event => {
             fetch(`${APIURL}/tournaments/register/${event.event}`, {
                 method: 'GET',
-                headers: {
+                headers: new Headers({
                     'Content-Type': 'application/json',
                     'Authorization': token
-                }
+                })
             })
             .then(response => response.json())
             .then(response => {
                 resultsArr.push(response)
                 this.setState({results: resultsArr})
-                console.log(this.state.results)
             })
         })
     }
@@ -41,10 +40,10 @@ export default class MyEvents extends Component {
         let token = sessionStorage.getItem('SessionToken')
         fetch(`${APIURL}/register/register`, {
             method: 'GET',
-            headers: {
+            headers: new Headers({
                 'Content-Type': 'application/json',
                 'Authorization': token
-            }
+            })
         })
         .then(response => response.json())
                 .then(response => this.fetchRealData(response))
@@ -54,10 +53,10 @@ export default class MyEvents extends Component {
         let token = sessionStorage.getItem('SessionToken')
         fetch(`${APIURL}/register/unregister/${e.target.name}`, {
             method: 'DELETE',
-            headers: {
+            headers: new Headers({
                 'Content-Type': 'application/json',
                 'Authorization': token
-            }
+            })
         })
         window.location.reload()
     }

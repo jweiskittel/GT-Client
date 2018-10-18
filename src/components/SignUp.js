@@ -45,9 +45,9 @@ export default class SignUp extends Component {
         if (this.state.password.length > 7) {     
         fetch(`${APIURL}/user/signUp`, {
             method: 'POST',
-            headers: {
+            headers: new Headers({
                 'Content-Type': 'application/json'
-            },
+            }),
             body: JSON.stringify(newUser)
         })
         window.location.href='/signIn'
