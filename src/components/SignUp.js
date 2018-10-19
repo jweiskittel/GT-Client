@@ -50,6 +50,9 @@ export default class SignUp extends Component {
             },
             body: JSON.stringify(newUser)
         })
+        .then(response => response.json())
+        .then(response => console.log(response))
+        .catch(err => console.log(err))
         window.location.href='/signIn'
     } else {
         alert('Password must be at least 8 characters')
