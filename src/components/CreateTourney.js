@@ -38,6 +38,7 @@ export default class CreateTourney extends Component {
             },
             body: JSON.stringify(newTourney)
         })
+        .then(window.location.href='/tournaments')
         e.preventDefault()
     }
 
@@ -51,13 +52,17 @@ export default class CreateTourney extends Component {
                             <Input style={{width: '75%', display: 'block', margin: 'auto', border: 'solid 1px black'}} bsSize='lg' type='text' name='location' placeholder='Location' onChange={this.handleChange}/>
                         </FormGroup>
                         <FormGroup>
-                            <Input style={{width: '75%', display: 'block', margin: 'auto', border: 'solid 1px black'}} bsSize='lg' type='date' name='date' placeholder='Date' onChange={this.handleChange}/>
+                            <Input style={{width: '75%', display: 'block', margin: 'auto', border: 'solid 1px black'}} bsSize='lg' type='select' name='format' onChange={this.handleChange}>
+                                <option disabled selected hidden>- Select One -</option>
+                                <option>Stroke</option>
+                                <option>Match</option>
+                            </Input>
                         </FormGroup>
                         <FormGroup>
-                            <Input style={{width: '75%', display: 'block', margin: 'auto', border: 'solid 1px black'}} bsSize='lg' type='text' name='format' placeholder='Stroke or Match' onChange={this.handleChange}/>
+                            <Input style={{width: '75%', display: 'block', margin: 'auto', border: 'solid 1px black'}} bsSize='lg' type='date' name='date' placeholder='Date' onChange={this.handleChange}/>
                         </FormGroup>
                         <br />
-                        <Button style={{border: 'solid 1px black'}} href='/tournaments' color='success' onClick={this.submitCreate}>Create</Button>
+                        <Button style={{border: 'solid 1px black'}} color='success' onClick={this.submitCreate}>Create</Button>
                     </Form>
                 </div>
             </div>

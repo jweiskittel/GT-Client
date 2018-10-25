@@ -34,6 +34,7 @@ export default class UpdateTourney extends Component {
             },
             body: JSON.stringify(this.state)
         })
+        .then(window.location.href='/tournaments')
         e.preventDefault()
     }
 
@@ -47,13 +48,17 @@ export default class UpdateTourney extends Component {
                             <Input style={{width: '75%', display: 'block', margin: 'auto', border: 'solid 1px black'}} size='lg' type='text' name='location' placeholder='Location' onChange={this.handleChange}/>
                         </FormGroup>
                         <FormGroup>
-                            <Input style={{width: '75%', display: 'block', margin: 'auto', border: 'solid 1px black'}} size='lg' type='date' name='date' placeholder='Date' onChange={this.handleChange}/>
+                            <Input style={{width: '75%', display: 'block', margin: 'auto', border: 'solid 1px black'}} size='lg' type='select' name='format' onChange={this.handleChange}>
+                                <option disabled selected hidden>- Select One -</option>
+                                <option>Stroke</option>
+                                <option>Match</option>
+                            </Input>
                         </FormGroup>
                         <FormGroup>
-                            <Input style={{width: '75%', display: 'block', margin: 'auto', border: 'solid 1px black'}} size='lg' type='text' name='format' placeholder='Stroke or Match' onChange={this.handleChange}/>
+                            <Input style={{width: '75%', display: 'block', margin: 'auto', border: 'solid 1px black'}} size='lg' type='date' name='date' placeholder='Date' onChange={this.handleChange}/>
                         </FormGroup>
                         <br />
-                        <Button style={{border: 'solid 1px black'}} href='/tournaments' color='success' onClick={this.submitUpdate}>Update</Button>
+                        <Button style={{border: 'solid 1px black'}} color='success' onClick={this.submitUpdate}>Update</Button>
                     </Form>
                 </div>
             </div>
