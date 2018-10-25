@@ -1,5 +1,5 @@
 import React from 'react'
-import {Button} from 'reactstrap'
+import {Button, Input} from 'reactstrap'
 import styled from 'styled-components'
 import img from '../assets/flag.jpg'
 
