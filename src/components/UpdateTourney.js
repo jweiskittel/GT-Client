@@ -34,6 +34,7 @@ export default class UpdateTourney extends Component {
             },
             body: JSON.stringify(this.state)
         })
+        e.preventDefault()
     }
 
     render() {

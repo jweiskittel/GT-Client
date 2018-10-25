@@ -23,7 +23,7 @@ export default class CreateTourney extends Component {
         })
     }
 
-    submitCreate = () => {
+    submitCreate = (e) => {
     let newTourney = {
         location: this.state.location,
         date: this.state.date,
@@ -38,6 +38,7 @@ export default class CreateTourney extends Component {
             },
             body: JSON.stringify(newTourney)
         })
+        e.preventDefault()
     }
 
     render() {
