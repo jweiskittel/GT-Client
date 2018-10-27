@@ -79,8 +79,8 @@ class App extends Component {
             <Navbar style={{position: 'fixed', top: '0', width: '100vw', zIndex: '1', borderBottom: 'solid 1px black'}} color="success" dark expand="md">
               <NavbarBrand style={{color: 'white'}}><i className="fas fa-golf-ball" style={{marginRight: '10px'}}></i>GolfToday</NavbarBrand>
               <Buttons id='navbar'>
-                <Button style={{marginRight: '15px', border: 'solid 1px black'}} size='sm' color='secondary' href='/account'>Account</Button>
                 <Button style={{marginRight: '15px', border: 'solid 1px black'}} size='sm' color='primary' href='/tournaments'><i className="fas fa-trophy"></i></Button>
+                <Button style={{marginRight: '15px', border: 'solid 1px black'}} size='sm' color='secondary' href='/account'><i class="fas fa-user"></i></Button>
                 <Button style={{border: 'solid 1px black'}} size='sm' color='danger' href='/' onClick={this.handleLogout}><i className="fas fa-power-off"></i></Button>
               </Buttons>
             </Navbar>
