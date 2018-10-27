@@ -34,7 +34,7 @@ export default class UpdateTourney extends Component {
             },
             body: JSON.stringify(this.state)
         })
-        .then(window.location.href='/tournaments')
+        .then(window.location.href='/account')
         e.preventDefault()
     }
 

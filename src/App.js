@@ -7,6 +7,7 @@ import CreateTourney from './components/CreateTourney'
 import UpdateTourney from './components/UpdateTourney'
 import MyEvents from './components/MyEvents'
 import FrontPage from './components/FrontPage'
+import Account from './components/Account'
 import styled from 'styled-components'
 
 
@@ -25,20 +26,26 @@ class App extends Component {
   constructor() {
     super()
     this.state ={
-      sessionToken: ''
+      sessionToken: '',
+      user: ''
     }
   }
 
   componentWillMount() {
     const token = sessionStorage.getItem('SessionToken')
-    if ( token && !this.state.sessionToken) {
+    const user = sessionStorage.getItem('user')
+    if ( token && !this.state.sessionToken && user && !this.state.user) {
       this.setState({sessionToken: token})
+      this.setState({user: user})
     }
   }
 
-  setSessionState = (token) => {
+  setSessionStorage = (token) => {
     sessionStorage.setItem('SessionToken', token)
-    this.setState({sessionToken: token})
+  }
+
+  setSessionUser = (user) => {
+    sessionStorage.setItem('user', user)
   }
 
   handleLogout = () => {
@@ -54,11 +61,12 @@ class App extends Component {
           <Route exact path='/createTourney'><CreateTourney /></Route>
           <Route exact path='/update'><UpdateTourney /></Route>
           <Route exact path='/registered'><MyEvents /></Route>
+          <Route exact path='/account'><Account user={this.state.user}/></Route>
         </Switch>
       )
     } else {
       return (
-            <Route exact path='/'><FrontPage setToken={this.setSessionState}/></Route>
+            <Route exact path='/'><FrontPage setUser={this.setSessionUser} setToken={this.setSessionStorage} /></Route>
       )
     }
   }
@@ -71,6 +79,7 @@ class App extends Component {
             <Navbar style={{position: 'fixed', top: '0', width: '100vw', zIndex: '1', borderBottom: 'solid 1px black'}} color="success" dark expand="md">
               <NavbarBrand style={{color: 'white'}}><i className="fas fa-golf-ball" style={{marginRight: '10px'}}></i>GolfToday</NavbarBrand>
               <Buttons id='navbar'>
+                <Button style={{marginRight: '15px', border: 'solid 1px black'}} size='sm' color='secondary' href='/account'>Account</Button>
                 <Button style={{marginRight: '15px', border: 'solid 1px black'}} size='sm' color='primary' href='/tournaments'><i className="fas fa-trophy"></i></Button>
                 <Button style={{border: 'solid 1px black'}} size='sm' color='danger' href='/' onClick={this.handleLogout}><i className="fas fa-power-off"></i></Button>
               </Buttons>

@@ -34,20 +34,7 @@ export default class Tournaments extends Component {
             headers: {'Content-Type': 'application/json'}
         })
         .then(response => response.json())
-        .then(response => {
-            this.setState({results: response})})
-    }
-
-    handleDelete = (e) => {
-        let token = sessionStorage.getItem('SessionToken')
-        fetch(`${APIURL}/tournaments/delete/${e.target.name}`, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': token
-            }
-        })
-        window.location.reload()
+        .then(response => this.setState({results: response}))
     }
 
     handleRegister = (e) => {
@@ -60,10 +47,6 @@ export default class Tournaments extends Component {
             }
         })
         .then(alert(`You have successfully registered for this event! Visit 'My Events' to see all of your events!`))
-    }
-
-    setStorage = (e) => {
-        sessionStorage.setItem('EventId', e.target.name)
     }
 
     componentWillMount() {this.fetchTourneys()}
@@ -95,9 +78,7 @@ export default class Tournaments extends Component {
                                         </List>
                                     </Col>
                                     <Col>
-                                        <Button style={{margin: '20px 0px 10px 0px', border: 'solid 1px black'}} size='sm' color='success' name={event.id} onClick={this.handleRegister}>Register</Button><br />
-                                        <Button style={{border: 'solid 1px black'}} size='sm' color='info' href='/update' name={event.id} onClick={this.setStorage}>Update</Button>
-                                        <Button style={{margin: '0px 0px 0px 5px', border: 'solid 1px black'}} size='sm' color='danger' name={event.id} onClick={this.handleDelete}>Delete</Button>
+                                        <Button style={{marginTop: '25%', border: 'solid 1px black'}} size='sm' color='success' name={event.id} onClick={this.handleRegister}>Register</Button><br />
                                     </Col>                        
                                 </Row>
                             </MyRow>

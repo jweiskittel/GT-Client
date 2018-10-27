@@ -8,7 +8,7 @@ const FrontPage = (props) => {
     return (
         <Switch>
             <Route exact path='/'><Auth /></Route>
-            <Route exact path='/signIn'><SignIn setToken={props.setToken}/></Route>
+            <Route exact path='/signIn'><SignIn setUser={props.setUser} setToken={props.setToken}/></Route>
             <Route exact path='/signUp'><SignUp /></Route>
         </Switch>
     )
